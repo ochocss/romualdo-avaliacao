@@ -3,7 +3,7 @@ package br.edu.ifpr.lista.modelo;
 import java.time.LocalDate;
 import java.util.Objects;
 
-import br.edu.ifpr.lista.utils.Utils;
+import br.edu.ifpr.lista.utils.FormatUtils;
 
 public abstract class Pessoa {
 	protected String nome;
@@ -43,7 +43,7 @@ public abstract class Pessoa {
 	
 	@Override
 	public String toString() {
-		return "Pessoa [nome=" + nome + ", nascimento=" + Utils.formatDate(nascimento) + ", " + endereco +"]";
+		return "Pessoa [nome=" + nome + ", nascimento=" + FormatUtils.formatDate(nascimento) + ", " + endereco +"]";
 	}
 
 	@Override

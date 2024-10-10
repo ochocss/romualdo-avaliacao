@@ -2,7 +2,7 @@ package br.edu.ifpr.lista.modelo;
 
 import java.util.Objects;
 
-import br.edu.ifpr.lista.utils.Utils;
+import br.edu.ifpr.lista.utils.FormatUtils;
 
 public class Endereco {
 	String nomeDaRua;
@@ -65,7 +65,7 @@ public class Endereco {
 				", numero=" + numero +
 				", bairro=" + bairro +
 				", cidade=" + cidade +
-				", cep=" + Utils.formatCep(cep);
+				", cep=" + FormatUtils.formatCep(cep);
 	}
 
 	@Override

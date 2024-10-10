@@ -6,7 +6,7 @@ import java.util.List;
 
 import br.edu.ifpr.lista.modelo.PessoaFisica;
 import br.edu.ifpr.lista.modelo.PessoaJuridica;
-import br.edu.ifpr.lista.persistencia.PFPersistencia;
+import br.edu.ifpr.lista.modelo.persistencia.impl.PFPersistencia;
 
 public class Main {
 	public static void main(String[] args) {		

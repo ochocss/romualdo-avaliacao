@@ -3,7 +3,7 @@ package br.edu.ifpr.lista.modelo;
 import java.time.LocalDate;
 import java.util.Objects;
 
-import br.edu.ifpr.lista.utils.Utils;
+import br.edu.ifpr.lista.utils.FormatUtils;
 
 public class PessoaJuridica extends Pessoa {
 	private String nomeFantasia;
@@ -35,7 +35,7 @@ public class PessoaJuridica extends Pessoa {
 	@Override
 	public String toString() {
 		return "PessoaJuridica [nomeFantasia=" + nomeFantasia + ", cnpj="
-			   + Utils.formatCnpj(cnpj) + ", " + super.toString() + "]";
+			   + FormatUtils.formatCnpj(cnpj) + ", " + super.toString() + "]";
 	}
 
 	@Override

@@ -3,7 +3,7 @@ package br.edu.ifpr.lista.modelo;
 import java.time.LocalDate;
 import java.util.Objects;
 
-import br.edu.ifpr.lista.utils.Utils;
+import br.edu.ifpr.lista.utils.FormatUtils;
 
 public class PessoaFisica extends Pessoa {
 	private String cpf;
@@ -11,7 +11,6 @@ public class PessoaFisica extends Pessoa {
 	public PessoaFisica() {super();}
 	public PessoaFisica(String nome, LocalDate nascimento, String cpf, String nomeDaRua, Integer numero, String bairro, String cidade, String cep) {
 		super(nome, nascimento, nomeDaRua, numero, bairro, cidade, cep);
-		// TODO check cpf and cnpj
 		this.cpf = cpf;
 	}
 	
@@ -25,7 +24,7 @@ public class PessoaFisica extends Pessoa {
 	
 	@Override
 	public String toString() {
-		return "PessoaFisica [cpf=" + Utils.formatCpf(cpf) + ", " + super.toString() + "]";
+		return "PessoaFisica [cpf=" + FormatUtils.formatCpf(cpf) + ", " + super.toString() + "]";
 	}
 
 	@Override
