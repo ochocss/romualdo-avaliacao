@@ -18,12 +18,19 @@ public abstract class Persistencia<T> {
 	}
 	
 	public boolean insert(T obj) {
-		list.add(obj);
-		return true;
+		if(!list.contains(obj)) {
+			list.add(obj);
+			return true;
+		}
+		return false;
 	}
 	
 	public boolean update(int index, T obj) {
-		if(!checkEquals(obj) && index >= 0 && index < list.size()) {
+		if(index < 0 || index >= list.size()) {
+			return false;
+		}
+
+		if(!obj.equals(list.get(index))) {
 			list.set(index, obj);
 			return true;
 		}
@@ -40,13 +47,5 @@ public abstract class Persistencia<T> {
 	
 	public List<T> select() {
 		return new ArrayList<T>(list);
-	}
-	
-	private boolean checkEquals(T obj) {
-		for(T obj2 : list) {
-			if(obj.equals(obj2))
-				return true;
-		}
-		return false;
 	}
 }
