@@ -3,6 +3,7 @@ package br.edu.ifpr.lista.modelo;
 import java.time.LocalDate;
 import java.util.Objects;
 
+import br.edu.ifpr.lista.utils.CpfUtils;
 import br.edu.ifpr.lista.utils.FormatUtils;
 
 public class PessoaFisica extends Pessoa {
@@ -11,6 +12,11 @@ public class PessoaFisica extends Pessoa {
 	public PessoaFisica() {super();}
 	public PessoaFisica(String nome, LocalDate nascimento, String cpf, String nomeDaRua, Integer numero, String bairro, String cidade, String cep) {
 		super(nome, nascimento, nomeDaRua, numero, bairro, cidade, cep);
+		
+		if(!CpfUtils.isValid(cpf)) {
+			throw new IllegalArgumentException("Invalid CPF: " + cpf);
+		}
+		
 		this.cpf = cpf;
 	}
 	

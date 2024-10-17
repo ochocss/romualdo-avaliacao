@@ -7,32 +7,27 @@ import java.util.List;
 import br.edu.ifpr.lista.modelo.PessoaFisica;
 import br.edu.ifpr.lista.modelo.PessoaJuridica;
 import br.edu.ifpr.lista.modelo.persistencia.impl.PFPersistencia;
+import br.edu.ifpr.lista.utils.CpfUtils;
+import br.edu.ifpr.lista.utils.Estado;
 
 public class Main {
 	public static void main(String[] args) {		
 		PFPersistencia persist = new PFPersistencia(List.of(
 				new PessoaFisica("Gabriel Nicolas Caleb Pinto",
                         LocalDate.of(1966,Month.MARCH,27),
-                        "09918133016", 
-                        "Rua Ednaldo", 190, "Barro", "Rolandia", "12345678"), 
-				new PessoaFisica("Gabriel Nicolas Caleb Pinto",
-                        LocalDate.of(1966,Month.MARCH,27),
-                        "09910433016", 
-                        "Rua Ednaldo", 190, "Barro", "Rolandia", "12345678"), 
-				new PessoaFisica("Gabriel Nicolas Caleb Pinto",
-                        LocalDate.of(1966,Month.MARCH,27),
-                        "02910133016", 
-                        "Rua Ednaldo", 190, "Barro", "Rolandia", "12345678"), 
-				new PessoaFisica("Gabriel Nicolas Caleb Pinto",
-                        LocalDate.of(1966,Month.MARCH,27),
-                        "09110133016", 
-                        "Rua Ednaldo", 190, "Barro", "Rolandia", "12345678"), 
-				new PessoaFisica("Gabriel Nicolas Caleb Pinto",
-                        LocalDate.of(1966,Month.MARCH,27),
-                        "09910133016", 
+                        CpfUtils.generateCpf(Estado.PR), 
                         "Rua Ednaldo", 190, "Barro", "Rolandia", "12345678")));
 		
 		System.out.println(persist.select());
+		
+		persist.insert(new PessoaFisica("Novo Povo",
+                        LocalDate.of(1966,Month.MARCH,27),
+                        CpfUtils.generateCpf(Estado.SP), 
+                        "Rua Ednaldo", 190, "Barro", "Rolandia", "12345678"));
+		
+		System.out.println(persist.select());
+		
+		
 		
 		
 		List<PessoaJuridica> pjLista = List.of(
