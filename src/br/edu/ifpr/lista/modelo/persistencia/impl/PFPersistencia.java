@@ -29,14 +29,14 @@ public class PFPersistencia implements Persistencia<PessoaFisica, String> {
 
 	@Override
 	public boolean update(String cpf, PessoaFisica obj) {
-		if(list.contains(obj)) {
-			return false;
-		}
-		
 		int length = list.size();
 		for(int i = 0; i < length; i++) {
 			PessoaFisica pf = list.get(i);
+
 			if(pf.getCpf().equals(cpf)) {
+				if(pf.equals(obj)) {
+					return false;
+				}
 				list.set(i, obj);
 				return true;
 			}
